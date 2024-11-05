@@ -1,0 +1,26 @@
+name: muktiono_5210411158
+description: "A new Flutter project."
+publish_to: 'none'  # Menunjukkan proyek ini tidak akan dipublikasikan ke pub.dev
+
+version: 1.0.0+1  # Versi aplikasi dengan format MAJOR.MINOR.PATCH+BUILD
+
+environment:
+  sdk: ^3.5.3  # Versi Dart SDK yang diperlukan
+
+dependencies:
+  flutter:
+    sdk: flutter  # Menggunakan SDK Flutter
+  cupertino_icons: ^1.0.8  # Ikon untuk tampilan iOS
+  http: ^1.2.2  # Paket untuk melakukan request HTTP
+  connectivity_plus: ^6.1.0
+  
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter  # Paket untuk pengujian unit dan widget
+  flutter_lints: ^4.0.0  # Paket untuk linting kode Flutter
+
+flutter:
+  uses-material-design: true  # Mengaktifkan desain material
+  assets:
+    - assets/images/  # Menentukan folder aset yang akan digunakan
