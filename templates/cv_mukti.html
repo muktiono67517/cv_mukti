@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>CV – Muktiono Nugroho | Web Programmer (ATS + Foto)</title>
+  <meta name="description" content="CV 1 halaman, ramah ATS, dengan foto, untuk Web Programmer. Disain unik namun tetap bersih dan mudah dipindai mesin.">
+  <style>
+    :root{
+      --paper: #f7f7f8;
+      --ink: #111827;
+      --muted: #6b7280;
+      --brand: #1a73e8; /* biru lembut ala material */
+      --accent: #f59e0b; /* amber */
+      --line: #e5e7eb;
+    }
+    /* ===== Reset ringkas ===== */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{padding:0;margin:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+      color:var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, rgba(26,115,232,.08), transparent 60%),
+        radial-gradient(1200px 600px at 110% 10%, rgba(245,158,11,.08), transparent 60%),
+        var(--paper);
+      line-height:1.4;
+      -webkit-print-color-adjust:exact; print-color-adjust:exact;
+    }
+    .page{ 
+      width:min(900px, 92vw);
+      margin:32px auto;
+      background:white;
+      border:1px solid #eaeaea;
+      border-radius:18px;
+      box-shadow:0 10px 30px rgba(0,0,0,.06);
+      overflow:hidden;
+    }
+    header[role="banner"]{
+      display:grid; 
+      grid-template-columns: 1fr auto;
+      gap:24px; 
+      padding:28px 28px 18px;
+      background:
+        linear-gradient(120deg, rgba(26,115,232,.08), transparent 45%),
+        conic-gradient(from 180deg at 102% -10%, rgba(245,158,11,.15), transparent 25%)
+      ;
+      border-bottom:1px solid var(--line);
+    }
+    .id{
+      display:flex;flex-direction:column;gap:10px;min-width:0;
+    }
+    h1{
+      font-size:clamp(22px, 4.2vw, 34px);
+      line-height:1.1; margin:0 0 4px 0;
+      letter-spacing:.2px;
+    }
+    .role{
+      display:inline-flex; align-items:center; gap:8px;
+      width:max-content;
+      padding:6px 10px; font-weight:600; font-size:13px;
+      color:#0b3b86; background:linear-gradient(90deg, rgba(26,115,232,.12), rgba(26,115,232,.06));
+      border:1px solid rgba(26,115,232,.25); border-radius:999px;
+    }
+    .summary{color:var(--muted); font-size:14.5px; max-width:68ch}
+
+    .meta{display:flex; flex-wrap:wrap; gap:10px 16px; margin:6px 0 0 0; padding:0; list-style:none}
+    .meta li{display:flex; align-items:center; gap:8px; font-size:14px;}
+    .meta svg{width:16px;height:16px;opacity:.8}
+    .photo-wrap {
+  align-self: start;
+  position: relative;
+  width: 150px;
+  height: 150px;
+  flex: none;
+}
+
+/* .photo-ring { 
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(from 140deg, var(--brand), var(--accent), var(--brand));
+  mask: radial-gradient(circle 80px at center, transparent 60px, #000 61px);
+  opacity: 0.9;
+} */
+
+.photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+  border: 6px solid white;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+  background: #ddd;
+  object-position: center top; /* Geser ke bawah, fokus ke atas gambar */
+}
+
+    main{display:grid; grid-template-columns: 1.1fr .9fr; gap:22px; padding:18px 24px 28px;}
+    @media (max-width: 860px){ main{grid-template-columns:1fr} }
+
+    section{ 
+      padding:14px 0; border-top:1px dashed var(--line);
+    }
+    section:first-child{border-top:none}
+    h2{font-size:15px; letter-spacing:.08em; text-transform:uppercase; color:#0b3b86; margin:0 0 10px;}
+
+    /* ===== Skills Chips ===== */
+    .chips{display:flex; flex-wrap:wrap; gap:8px;}
+    .chip{font-size:13px; padding:7px 10px; border-radius:11px; border:1px solid #e6ebf5; background:linear-gradient(180deg, #fff, #fafcff); box-shadow:0 1px 0 #eef2ff inset}
+    .chip strong{font-weight:700}
+
+    /* ===== Projects ===== */
+    .project{display:grid; grid-template-columns: auto 1fr; gap:10px 14px; padding:12px; border:1px solid #eef0f4; border-radius:14px; background:linear-gradient(160deg, #ffffff, #fbfdff); position:relative}
+    .project + .project{margin-top:10px}
+    .bullet{
+      width:12px; height:12px; border-radius:50%; margin-top:4px;
+      background: radial-gradient(circle at 30% 30%, var(--brand) 0 55%, #dbeafe 56% 100%);
+      box-shadow: 0 0 0 3px #eef5ff;
+    }
+    .project h3{margin:0; font-size:16px}
+    .stack{font-size:12.5px; color:#27579a}
+    .project p{margin:6px 0 0; font-size:14px; color:#374151}
+    .links{display:flex; gap:14px; font-size:13px; margin-top:8px}
+    .links a{color:#0b3b86; text-decoration:none; border-bottom:1px dotted #93c5fd}
+
+    /* ===== Timeline small (Education/Achievement) ===== */
+    .timeline{position:relative; padding-left:32px}
+    .timeline::before{content:""; position:absolute; left:7px; top:2px; bottom:2px; width:2px; background:linear-gradient(180deg, #cfe3ff, #fde68a)}
+    .t{position:relative; padding:2px 0 10px}
+    .t::before{content:""; position:absolute; left:-20px; top:6px; width:10px; height:10px; border-radius:50%; background:radial-gradient(circle at 35% 35%, #1a73e8 0 55%, #fff 56% 100%); box-shadow:0 0 0 3px #e9f1ff}
+    .t h3{margin: 0; font-size:15px}
+    .t small{color:var(--muted)}
+
+    /* ===== Tags row ===== */
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+    .tag{font-size:12px; border:1px dashed #cbd5e1; padding:4px 8px; border-radius:999px; background:#fff}
+
+    /* ===== Print: A4, 1 halaman ===== */
+    @page{ size: A4; margin: 10mm }
+    @media print{
+      body{background:white;}
+      .page{ box-shadow:none; border:none; margin:0; width:auto }
+      header[role="banner"]{ border-bottom:1px solid #ddd; background:white }
+      .photo{ border:4px solid white }
+      a{ color:black; text-decoration:underline }
+    }
+  </style>
+</head>
+<body>
+  <div class="page" role="document">
+    <header role="banner" aria-label="Identitas dan ringkasan">
+      <div class="id">
+        <h1>Muktiono Nugroho</h1>
+        <div class="role" aria-label="Peran">Programmer · Backend & DevOps</div>
+        <p class="summary">Programmer otodidak dengan fokus pada pengembangan web dan mobile menggunakan Python (Flask), JavaScript (Express.js), Dart (Flutter), serta pengelolaan basis data MySQL. Terbiasa membangun aplikasi dari nol, mengonfigurasi server, dan melakukan deployment mandiri di VPS Linux. Tidak menempuh kursus atau magang, namun konsisten belajar secara mandiri. Berorientasi pada solusi, rapi dalam dokumentasi, dan siap berkembang bersama tim.</p>
+        <ul class="meta" aria-label="Kontak & tautan">
+          <li>
+            <!-- mail icon -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M4 6l8 7 8-7"/></svg>
+            <span><strong>Email:</strong> muktiononugroho01112002@gmail.com</span>
+          </li>
+          <li>
+            <!-- phone -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.9.33 1.77.63 2.6a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.48-1.15a2 2 0 0 1 2.11-.45c.83.3 1.7.51 2.6.63A2 2 0 0 1 22 16.92z"/></svg>
+            <span><strong>HP:</strong> 08562760366</span>
+          </li>
+          <li>
+            <!-- location -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-6-5.33-6-10a6 6 0 1 1 12 0c0 4.67-6 10-6 10z"/><circle cx="12" cy="11" r="2.5"/></svg>
+            <span><strong>Lokasi:</strong> Kulon Progo, DI Yogyakarta</span>
+          </li>
+          <li>
+            <!-- github -->
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.79 23.4c.6.11.82-.26.82-.58l-.02-2.03c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.34-1.77-1.34-1.77-1.1-.77.08-.76.08-.76 1.21.08 1.84 1.25 1.84 1.25 1.08 1.84 2.84 1.31 3.53 1 .11-.8.42-1.31.77-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.25-3.23-.13-.31-.54-1.57.12-3.27 0 0 1.01-.32 3.31 1.23a11.5 11.5 0 0 1 6.02 0c2.3-1.55 3.31-1.23 3.31-1.23.66 1.7.25 2.96.12 3.27.78.85 1.25 1.92 1.25 3.23 0 4.61-2.81 5.63-5.49 5.93.43.37.82 1.1.82 2.22l-.02 3.29c0 .32.21.7.83.58A12 12 0 0 0 12 .5Z"/></svg>
+            <span><strong>GitHub:</strong> https://github.com/muktiono67517</span>
+          </li>
+          <li>
+            <!-- link -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M10.59 13.41A4 4 0 0 1 10 12a4 4 0 0 1 4-4h3"/><path d="M14.5 7.5 18 4m-4 12.5A4 4 0 0 1 10 12a4 4 0 0 1 4-4h3"/></svg>
+            <span><strong>Website:</strong> muktiononugroho.com</span>
+          </li>
+        </ul>
+      </div>
+      <div class="photo-wrap" aria-hidden="false">
+        <div class="photo-ring"></div>
+        <!-- Ganti src dengan foto Anda, rasio 1:1. Contoh: images/mukti.jpg -->
+       <img class="photo" src="{{ url_for('static', filename='images/mukti.jpg') }}" alt="Foto Muktiono Nugroho" />
+      </div>
+    </header>
+
+    <main role="main">
+      <!-- ===== Kolom kiri (konten utama) ===== -->
+      <div>
+        <section id="skills">
+          <h2>Keahlian Teknis</h2>
+          <div class="chips" aria-label="Daftar keahlian">
+            <span class="chip"><strong>Python</strong> (Flask)</span>
+            <span class="chip"><strong>JavaScript</strong> (Express.js)</span>
+            <span class="chip"><strong>Dart</strong> (Flutter)</span>
+            <span class="chip"><strong>HTML</strong> &amp; <strong>CSS</strong></span>
+            <span class="chip">REST API</span>
+            <span class="chip">MySQL &amp; SQL</span>
+            <span class="chip">Git &amp; GitHub</span>
+            <span class="chip">Linux &amp; NGINX</span>
+          </div>
+        </section>
+
+        <section id="projects">
+          <h2>Proyek</h2>
+
+          <!-- <article class="project" aria-labelledby="p1-title">
+            <div class="bullet" aria-hidden="true"></div>
+            <div>
+              <h3 id="p1-title">Undangan Pernikahan Digital Pribadi – Flask + MySQL</h3>
+              <div class="stack">Flask · Jinja2 · MySQL · NGINX · VPS (Hostinger)</div>
+              <p>Membangun platform undangan pernikahan digital secara mandiri, kemudian melakukan deployment di Ubuntu (VPS Hostinger) menggunakan NGINX.</p>
+              </div> 
+            </div>
+          </article> -->
+
+          <article class="project" aria-labelledby="p2-title">
+            <div class="bullet" aria-hidden="true"></div>
+            <div>
+            <h3 id="p2-title">Aplikasi Bantuan Sosial Berbasis Web dan Mobile – Kapanewon Kokap, Kulon Progo</h3>
+            <div class="stack">Express.js · MySQL · Android Studio (Kotlin)</div>
+            <p>Membangun aplikasi untuk pendataan penerima bantuan sosial, dengan backend berbasis web (Express.js + MySQL) dan aplikasi Android untuk input lapangan. Dikembangkan sebagai Tugas Akhir secara mandiri.</p>
+        <!-- <div class="links">
+            <a href="https://github.com/muktiononugroho" target="_blank" rel="noopener">Kode Terkait</a>
+        </div> -->
+        </div>
+            </article>
+
+        <section id="keywords">
+          <h2>Kata Kunci ATS</h2>
+          <p>Web Developer, Backend Developer, Flask, Express.js, Flutter, Android Studio, REST API, MySQL, Git, VPS Linux.</p>
+
+        </section>
+      </div>
+
+      <!-- ===== Kolom kanan (informasi pelengkap) ===== -->
+      
+      <aside aria-label="Informasi pelengkap">
+        <section id="experience">
+          <h2>Pengalaman Relevan</h2>
+          <div class="timeline">
+            <div class="t">
+              <h3>Proyek Tugas Akhir</h3>
+              <small>2024 – 2025</small>
+              <p>Aplikasi bantuan sosial berbasis web (Express.js) dan mobile (Kotlin) sebagai Tugas Akhir, dikembangkan untuk wilayah Kapanewon Kokap, Kabupaten Kulon Progo.</p>
+            </div>
+          </div>
+        </section>
+
+    
+       <section id="education">
+  <h2>Pendidikan</h2>
+  <div class="timeline">
+    <div class="t">
+      <h3>S1 Teknik Informatika</h3>
+      <small>2021 – 2025 · Universitas Teknologi Yogyakarta</small>
+      <p>Fokus: Pemrograman Web dan Android, Basis Data, Sistem Operasi, Jaringan Komputer.</p>
+    </div>
+
+    <div class="t">
+      <h3>SMA Negeri 1 Pengasih</h3>
+      <small>2018 – 2021</small>
+      <p>Fokus: Dasar-dasar pemrograman, sistem komputer, dan logika algoritma.</p>
+    </div>
+  </div>
+</section>
+
+
+        <section id="achieve">
+          <h2>Pencapaian</h2>
+          <ul>
+            <!-- <li>Deploy web Flask pertama ke VPS Ubuntu dalam ±3 jam belajar awal.</li>
+            <li>Otomasi SSL perpanjangan dengan <code>certbot renew</code> via <code>cron</code>.</li>
+            <li>Menulis dokumentasi setup server untuk pemula.</li> -->
+            <li>Iseh bingung lan blank iki guys, pikir keri wae lah, wkwkwkwkw.</li>
+          </ul>
+        </section>
+
+        <section id="langs">
+          <h2>Bahasa</h2>
+          <ul>
+            <li>Indonesia (aktif)</li>
+            <li>Inggris (menengah – baca/tulis)</li>
+          </ul>
+        </section>
+
+        <section id="soft">
+          <h2>Soft Skills</h2>
+          <div class="chips">
+            <span class="chip">Problem Solving</span>
+            <span class="chip">Self-Learner</span>
+            <span class="chip">Komunikatif</span>
+            <span class="chip">Time Management</span>
+            <span class="chip">Dokumentasi rapi</span>
+          </div>
+        </section>
+      </aside>
+    </main>
+  </div>
+
+  <!-- Petunjuk cepat: ganti FOTO, Email, HP, Kampus. Cetak: Ctrl/Cmd+P -->
+</body>
+</html>
